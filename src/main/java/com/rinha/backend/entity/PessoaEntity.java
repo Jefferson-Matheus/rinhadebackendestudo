@@ -1,5 +1,7 @@
 package com.rinha.backend.entity;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +15,7 @@ public class PessoaEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	private Long id;
+	private UUID id;
 	
 	@Column(nullable = false, unique = true, length = 32)
 	private String apelido;
@@ -25,7 +27,7 @@ public class PessoaEntity {
 	
 	private String[] stack;
 
-	public PessoaEntity(Long id, String apelido, String nome, String data_nascimento, String[] stack) {
+	public PessoaEntity(UUID id, String apelido, String nome, String data_nascimento, String[] stack) {
 		super();
 		this.id = id;
 		this.apelido = apelido;
@@ -34,11 +36,11 @@ public class PessoaEntity {
 		this.stack = stack;
 	}
 
-	public Long getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 
