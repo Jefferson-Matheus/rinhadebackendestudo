@@ -1,8 +1,10 @@
 package com.rinha.backend.entity;
 
+import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +27,10 @@ public class PessoaEntity {
 	
 	private String data_nascimento;
 	
-	private String[] stack;
+	@ElementCollection
+	private List<String> stack;
 
-	public PessoaEntity(UUID id, String apelido, String nome, String data_nascimento, String[] stack) {
+	public PessoaEntity(UUID id, String apelido, String nome, String data_nascimento, List<String> stack) {
 		super();
 		this.id = id;
 		this.apelido = apelido;
@@ -35,6 +38,12 @@ public class PessoaEntity {
 		this.data_nascimento = data_nascimento;
 		this.stack = stack;
 	}
+	
+
+	public PessoaEntity() {
+	}
+
+
 
 	public UUID getId() {
 		return id;
@@ -68,11 +77,11 @@ public class PessoaEntity {
 		this.data_nascimento = data_nascimento;
 	}
 
-	public String[] getStack() {
+	public List<String> getStack() {
 		return stack;
 	}
 
-	public void setStack(String[] stack) {
+	public void setStack(List<String> stack) {
 		this.stack = stack;
 	}
 		
